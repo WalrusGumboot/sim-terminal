@@ -33,6 +33,8 @@ class UnknownError(Exception):
 
 # TEXT FUNCTIONS
 def asc(*args):
+	"""asc()
+	ASCii representation of a """
 	if len(args) == 0:
 		inputChar = input("asc > char? > ")
 	elif len(args) == 1:
@@ -136,7 +138,7 @@ def lcm(*args):
 	result = (abs(inputA) / gcd(inputA, inputB)) * abs(inputB)
 	return result
 
-print("SIM-TERMINAL, version alpha-0.0.2")
+print("SIM-TERMINAL, version alpha-0.0.3")
 print("Developed by Simeon Duwel, a. k. a. WalrusGumboot", end='\n\n')
 
 print("Please contact me if you find any bugs:")
