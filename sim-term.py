@@ -16,7 +16,7 @@ functions = {
 	"hlp()" : "print a basic welcome guide",
 	"hmd()" : "amount of times an int divides in another",
 	"lcm()" : "return the lcm of an int",
-	"lst()" : "list all function"
+	"lst()" : "list all functions"
 }
 
 # EXCEPTIONS
@@ -55,9 +55,12 @@ def hlp():
 	print("    > SIM-TERMINAL is a terminal-like utility tool based on Python.")
 	print("    > It contains some useful commands to quickly calculate all kinds of things,")
 	print("    > create new files or perform bulk operations on a large group of files.", end='\n\n')
-	print("    > For example, typing in dvs() will prompt you with \"dvs > input? > \"")
-	print("    > Typing in a number will then give you all integer divisors of the number you typed.")
-	print("    > Alternatively, typing dvs() with a number between the brackets skips the prompt.", end='\n\n')
+	print("    > Everything in SIM-TERMINAL is based around the concept of functions.")
+	print("    > An example would be \"dvs()\", which, when typed, prompts you with \"dvs > input?> \"")
+	print("    > Entering a number and pressing Enter will in this case return the divisors of the")
+	print("    > number you entered.", end="\n\n")
+	print("    > Most function can also be called with the value between the brackets.")
+	print("    > For example, dvs(420) will return the divisors of 420 while skipping the prompt.", end='\n\n')
 	print("    > For a list of all available commands and a short summary of what they do, type lst().", end='\n\n')
 	raise DoNotPrint()
 def asc(*args):
@@ -74,8 +77,9 @@ def asc(*args):
 	return bin(ord(inputChar))
 def lst():
 	print("function : description")
+	print("---------:------------")
 	for k, v in functions.items():
-		print(k + "    :    " + v)
+		print(k + "    : " + v)
 	raise DoNotPrint()
 
 # UTILITY FUNCTIONS
