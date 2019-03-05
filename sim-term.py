@@ -4,7 +4,7 @@
 # e-mail: walrusgumboot.dev@gmail.com
 # phone #: +32 468 47 05 87
 
-# Last edited on: 05/03/2019 (that's DD/MM/YYYY, folks!)
+# Last edited on: 04/03/2019 (that's DD/MM/YYYY, folks!)
 
 import os
 
