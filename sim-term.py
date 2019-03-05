@@ -65,7 +65,7 @@ def hlp():
 	raise DoNotPrint()
 def asc(*args):
 	"""asc()
-	ASCii representation of a given character"""
+	ascii representation of a given character"""
 	if len(args) == 0:
 		inputChar = input("asc > char? > ")
 	elif len(args) == 1:
@@ -75,11 +75,17 @@ def asc(*args):
 	else:
 		raise UnknownError()
 	return bin(ord(inputChar))
-def lst():
-	print("function : description")
-	print("---------:------------")
-	for k, v in functions.items():
-		print(k + "    : " + v)
+def lst(*args):
+	if len(args) == 0:
+		print("function : description")
+		print("---------:------------")
+		for k, v in functions.items():
+			print("      " + k + "    : " + v)
+	elif len(args) == 1:
+		if args[0] in functions:
+			print("      " + functions.get(args[0]))
+	elif len(args) > 1:
+		raise ArgumentError(function="lst()", numOfArgs=len(args))
 	raise DoNotPrint()
 
 # UTILITY FUNCTIONS
