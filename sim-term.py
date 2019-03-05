@@ -8,6 +8,17 @@
 
 import os
 
+functions = {
+	"asc()" : "ascii representation of a char",
+	"clr()" : "clear the console",
+	"dvs()" : "return divisors of an int",
+	"gcd()" : "return the gcd of an int",
+	"hlp()" : "print a basic welcome guide",
+	"hmd()" : "amount of times an int divides in another",
+	"lcm()" : "return the lcm of an int",
+	"lst()" : "list all function"
+}
+
 # EXCEPTIONS
 class ArgumentError(Exception):
 	"""
@@ -44,9 +55,10 @@ def hlp():
 	print("    > SIM-TERMINAL is a terminal-like utility tool based on Python.")
 	print("    > It contains some useful commands to quickly calculate all kinds of things,")
 	print("    > create new files or perform bulk operations on a large group of files.", end='\n\n')
-	print("    > For example, typing in \"dvs()\" will prompt you with \"dvs > input? > \"")
+	print("    > For example, typing in dvs() will prompt you with \"dvs > input? > \"")
 	print("    > Typing in a number will then give you all integer divisors of the number you typed.")
-	print("    > Go on, try it!", end='\n')
+	print("    > Alternatively, typing dvs() with a number between the brackets skips the prompt.", end='\n\n')
+	print("    > For a list of all available commands and a short summary of what they do, type lst().", end='\n\n')
 	raise DoNotPrint()
 def asc(*args):
 	"""asc()
@@ -60,11 +72,16 @@ def asc(*args):
 	else:
 		raise UnknownError()
 	return bin(ord(inputChar))
+def lst():
+	print("function : description")
+	for k, v in functions.items():
+		print(k + "    :    " + v)
+	raise DoNotPrint()
 
 # UTILITY FUNCTIONS
 def clr():
 	os.system('cls')
-	return ""
+	raise DoNotPrint()
 
 # MATH FUNCTIONS
 def hmd(*args):
@@ -74,13 +91,13 @@ def hmd(*args):
 			inputUpTo = eval(input("hmd > what number do you want to test up to? > "))
 		except ValueError:
 			print("err > input has to be of type int!")
+			raise DoNotPrint()
 	elif len(args) == 2:
 		inputCheck = args[0]
 		inputUpTo = args[1]
 	elif len(args) > 2 or len(args) < 2:
 		raise ArgumentError(function="hmd()", numOfArgs=len(args))
 	else:
-		print("err > An unknown error occurred.")
 		raise UnknownError()
 	result = 0
 
@@ -97,6 +114,7 @@ def dvs(*args):
 			inputVal = eval(input("dvs > input? > "))
 		except ValueError:
 			print("err > input has to be of type int!")
+			raise DoNotPrint()
 	elif len(args) == 1:
 		inputVal = args[0]
 	elif len(args) > 1:
@@ -116,6 +134,7 @@ def gcd(*args):
 			inputB = eval(input("gcd > input b? > "))
 		except ValueError:
 			print("err > input has to be of type int!")
+			raise DoNotPrint()
 	elif len(args) == 2:
 		inputA = args[0]
 		inputB = args[1]
@@ -163,5 +182,11 @@ print("If this is your first time using SIM-TERMINAL, type hlp() for help", end=
 while True:
 	try:
 		print("    > " + str(eval(input("sim > "))))
+	except SyntaxError:
+		print("sim > err > syntax error")
+		pass
+	except NameError:
+		print("sim > err > name error")
+		pass
 	except (ArgumentError, UnknownError, DoNotPrint):
 		pass

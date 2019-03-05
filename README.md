@@ -20,6 +20,7 @@ Currently, there are three categories and seven functions.
 #### Text Functions
  - asc()
  - hlp()
+ - lst()
 #### Utility Functions
  - clr()
 #### Math Functions
