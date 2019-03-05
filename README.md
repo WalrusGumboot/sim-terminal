@@ -15,10 +15,11 @@ They're inspired by Assembly.
 
 ## LIST OF FUNCTIONS
 
-Currently, there are three categories and six functions.
+Currently, there are three categories and seven functions.
 
 #### Text Functions
  - asc()
+ - hlp()
 #### Utility Functions
  - clr()
 #### Math Functions
