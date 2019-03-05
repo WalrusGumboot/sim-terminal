@@ -31,10 +31,26 @@ class UnknownError(Exception):
 	def __init__(self):
 		print("UnknownError: An unknown error occurred. \nPlease contact me with the details provided on startup.")
 
+class DoNotPrint(Exception):
+	"""This is not really an exception, more a cheeky way to get around my Pythonic way of handling
+	input and output without having to implement an if statement."""
+	def __init__(self):
+		pass
+
+
 # TEXT FUNCTIONS
+def hlp():
+	print()
+	print("    > SIM-TERMINAL is a terminal-like utility tool based on Python.")
+	print("    > It contains some useful commands to quickly calculate all kinds of things,")
+	print("    > create new files or perform bulk operations on a large group of files.", end='\n\n')
+	print("    > For example, typing in \"dvs()\" will prompt you with \"dvs > input? > \"")
+	print("    > Typing in a number will then give you all integer divisors of the number you typed.")
+	print("    > Go on, try it!", end='\n')
+	raise DoNotPrint()
 def asc(*args):
 	"""asc()
-	ASCii representation of a """
+	ASCii representation of a given character"""
 	if len(args) == 0:
 		inputChar = input("asc > char? > ")
 	elif len(args) == 1:
@@ -108,9 +124,6 @@ def gcd(*args):
 	else:
 		raise UnknownError()
 
-	result = 0
-	aDivs = dvs(inputA)
-	bDivs = dvs(inputB)
 
 	# Euclid's algorithm
 	result = 0
@@ -126,7 +139,7 @@ def lcm(*args):
 			inputB = eval(input("lcm > input b? > "))
 		except ValueError:
 			print("err > input has to be of type int!")
-			return None
+			raise DoNotPrint()
 	elif len(args) == 2:
 		inputA = args[0]
 		inputB = args[1]
@@ -150,5 +163,5 @@ print("If this is your first time using SIM-TERMINAL, type hlp() for help", end=
 while True:
 	try:
 		print("    > " + str(eval(input("sim > "))))
-	except (ArgumentError, UnknownError):
+	except (ArgumentError, UnknownError, DoNotPrint):
 		pass
