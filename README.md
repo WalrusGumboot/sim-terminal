@@ -5,8 +5,8 @@ SIM-TERMINAL is a utility tool to quickly calculate things, create new files or 
 ## FUNCTIONALITY
 
 Most functions can be called with or without parameters.
-When you call a function that supports optional parameters, for example ```dvs()```, SIM-TERMINAL will prompt you with 
-```dvs > input? > ```.
+When you call a function that supports optional parameters, for example `dvs()`, SIM-TERMINAL will prompt you with
+`dvs > input? > `.
 However, ```dvs(420)``` will immediately return the integer divisors of 420.
 
 ## AESTHETICS
@@ -24,8 +24,10 @@ Currently, there are three categories and seven functions.
  - lst()
 #### Utility Functions
  - clr()
-#### Math Functions
+#### Maths Functions
  - hmd()
  - dvs()
  - gcd()
  - lcm()
+#### File Functions
+ - pwd()
