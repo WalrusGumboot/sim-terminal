@@ -98,7 +98,10 @@ def lst():
 
 # UTILITY FUNCTIONS
 def clr():
-	os.system('cls')
+	if os.name == "nt":
+		os.system('cls')
+	else:
+		os.system(' clear')
 	raise DoNotPrint()
 
 # MATH FUNCTIONS
