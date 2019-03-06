@@ -195,7 +195,8 @@ def lcm(*args):
 # FILE OPERATIONS
 def pwd():
 	print()
-	print(os.getcwd())
+	print(f"    > {os.getcwd()}")
+	print()
 	raise DoNotPrint()
 
 print("SIM-TERMINAL, version alpha-0.0.3")
