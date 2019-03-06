@@ -50,18 +50,32 @@ class DoNotPrint(Exception):
 
 
 # TEXT FUNCTIONS
-def hlp():
-	print()
-	print("    > SIM-TERMINAL is a terminal-like utility tool based on Python.")
-	print("    > It contains some useful commands to quickly calculate all kinds of things,")
-	print("    > create new files or perform bulk operations on a large group of files.", end='\n\n')
-	print("    > Everything in SIM-TERMINAL is based around the concept of functions.")
-	print("    > An example would be \"dvs()\", which, when typed, prompts you with \"dvs > input?> \"")
-	print("    > Entering a number and pressing Enter will in this case return the divisors of the")
-	print("    > number you entered.", end="\n\n")
-	print("    > Most function can also be called with the value between the brackets.")
-	print("    > For example, dvs(420) will return the divisors of 420 while skipping the prompt.", end='\n\n')
-	print("    > For a list of all available commands and a short summary of what they do, type lst().", end='\n\n')
+def hlp(*args):
+	if len(args) == 0:
+		print()
+		print("    > SIM-TERMINAL is a terminal-like utility tool based on Python.")
+		print("    > It contains some useful commands to quickly calculate all kinds of things,")
+		print("    > create new files or perform bulk operations on a large group of files.", end='\n\n')
+
+		print("    > Everything in SIM-TERMINAL is based around the concept of functions.")
+		print("    > An example would be \"dvs()\", which, when typed, prompts you with \"dvs > input?> \"")
+		print("    > Entering a number and pressing Enter will in this case return the divisors of the")
+		print("    > number you entered.", end="\n\n")
+
+		print("    > Most function can also be called with the value between the brackets.")
+		print("    > For example, dvs(420) will return the divisors of 420 while skipping the prompt.", end='\n\n')
+
+		print("    > If you want detailed info on a specific function, type hlp(\"name_of_function\").")
+		print("    > For a list of all available commands and a short summary of what they do, type lst().", end='\n\n')
+	elif len(args) == 1:
+		if args[0] in functions:
+			print(f"    > {args[0]} : {functions.get(args[0])}")
+		else:
+			print("    > That function was not found. Remember to end function names with brackets.")
+	elif len(args) > 1:
+		raise ArgumentError(function="lst()", numOfArgs=len(args))
+	else:
+		raise UnknownError()
 	raise DoNotPrint()
 def asc(*args):
 	"""asc()
@@ -75,17 +89,11 @@ def asc(*args):
 	else:
 		raise UnknownError()
 	return bin(ord(inputChar))
-def lst(*args):
-	if len(args) == 0:
-		print("function : description")
-		print("---------:------------")
-		for k, v in functions.items():
-			print("      " + k + "    : " + v)
-	elif len(args) == 1:
-		if args[0] in functions:
-			print("      " + functions.get(args[0]))
-	elif len(args) > 1:
-		raise ArgumentError(function="lst()", numOfArgs=len(args))
+def lst():
+	print("    > function : description")
+	print("    > ---------:------------")
+	for k, v in functions.items():
+		print(f"    > {k}    : {v}")
 	raise DoNotPrint()
 
 # UTILITY FUNCTIONS
