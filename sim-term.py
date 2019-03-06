@@ -1,4 +1,3 @@
-
 # Copyright (c) 2019 Simeon Duwel, All Rights Reserved.
 
 # e-mail: walrusgumboot.dev@gmail.com
