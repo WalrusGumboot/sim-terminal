@@ -1,4 +1,4 @@
-# SIM-TERMINAL, by Simeon Duwel
+
 # Copyright (c) 2019 Simeon Duwel, All Rights Reserved.
 
 # e-mail: walrusgumboot.dev@gmail.com
@@ -41,13 +41,11 @@ class UnknownError(Exception):
 	"""
 	def __init__(self):
 		print("UnknownError: An unknown error occurred. \nPlease contact me with the details provided on startup.")
-
 class DoNotPrint(Exception):
 	"""This is not really an exception, more a cheeky way to get around my Pythonic way of handling
 	input and output without having to implement an if statement."""
 	def __init__(self):
 		pass
-
 
 # TEXT FUNCTIONS
 def hlp(*args):
@@ -90,10 +88,12 @@ def asc(*args):
 		raise UnknownError()
 	return bin(ord(inputChar))
 def lst():
-	print("    > function : description")
-	print("    > ---------:------------")
+	print()
+	print("    > function | description")
+	print("    > ---------+------------")
 	for k, v in functions.items():
-		print(f"    > {k}    : {v}")
+		print(f"    > {k}    | {v}")
+	print()
 	raise DoNotPrint()
 
 # UTILITY FUNCTIONS
@@ -108,8 +108,8 @@ def clr():
 def hmd(*args):
 	if len(args) == 0:
 		try:
-			inputCheck = eval(input("hmd > what number do you want to check for? > "))
-			inputUpTo = eval(input("hmd > what number do you want to test up to? > "))
+			inputCheck = eval(input("hmd > check? > "))
+			inputUpTo = eval(input("hmd > up to? > "))
 		except ValueError:
 			print("err > input has to be of type int!")
 			raise DoNotPrint()
