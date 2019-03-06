@@ -16,7 +16,7 @@ They're inspired by Assembly.
 
 ## LIST OF FUNCTIONS
 
-Currently, there are three categories and seven functions.
+Currently, there are four categories and nine functions.
 
 #### Text Functions
  - asc()
