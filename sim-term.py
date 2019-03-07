@@ -16,7 +16,8 @@ functions = {
 	"hlp()" : "print a basic welcome guide",
 	"hmd()" : "amount of times an int divides in another",
 	"lcm()" : "return the lcm of an int",
-	"lst()" : "list all functions"
+	"lst()" : "list all functions",
+	"pwd()" : "print the working directory"
 }
 
 # EXCEPTIONS
@@ -190,6 +191,12 @@ def lcm(*args):
 
 	result = (abs(inputA) / gcd(inputA, inputB)) * abs(inputB)
 	return result
+
+# FILE OPERATIONS
+def pwd():
+	print()
+	print(os.getcwd())
+	raise DoNotPrint()
 
 print("SIM-TERMINAL, version alpha-0.0.3")
 print("Developed by Simeon Duwel, a. k. a. WalrusGumboot", end='\n\n')
