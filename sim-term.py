@@ -200,12 +200,12 @@ def pwd():
 	print()
 	raise DoNotPrint()
 def chd(path):
+	cwd = path
 	raise DoNotPrint()
 def mkd(name):
-	try:
-		targetPath = cwd + "/" name
-		os.mkdir(path=targetPath)
-		
+	targetPath = cwd + "/" + name
+	os.mkdir(path=targetPath)
+
 print("SIM-TERMINAL, version alpha-0.0.3")
 print("Developed by Simeon Duwel, a. k. a. WalrusGumboot", end='\n\n')
 
