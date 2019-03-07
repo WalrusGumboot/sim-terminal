@@ -11,7 +11,7 @@
 With arguments allows a [allowed data type]. Anything else will throw either a **TypeError** if the given argument isn't a [allowed data type], or an **ArgumentError** if more than [allowed amount of args] argument[s] is given.
 
 ### Known Bugs
-[known bugs]
+There are no known bugs in `dvs()`. If you find any, commit a new issue by clicking [here](https://github.com/WalrusGumboot/sim-terminal/issues/new) or email me at [walrusgumboot.dev@gmail.com](mailto://walrusgumboot.dev@gmail.com).
 
 ### Remarks
 [remarks ¯\\\_(ツ)\__/¯]
