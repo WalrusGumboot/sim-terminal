@@ -1,4 +1,3 @@
-
 # Copyright (c) 2019 Simeon Duwel, All Rights Reserved.
 
 # e-mail: walrusgumboot.dev@gmail.com
@@ -10,14 +9,17 @@ import os
 
 functions = {
 	"asc()" : "ascii representation of a char",
+	"chd()" : "changes the current working directory",
 	"clr()" : "clear the console",
 	"dvs()" : "return divisors of an int",
 	"gcd()" : "return the gcd of an int",
 	"hlp()" : "print a basic welcome guide",
 	"hmd()" : "amount of times an int divides in another",
 	"lcm()" : "return the lcm of an int",
-	"lst()" : "list all functions"
+	"lst()" : "list all functions",
+	"pwd()" : "print the working directory"
 }
+cwd = os.getcwd()
 
 # EXCEPTIONS
 class ArgumentError(Exception):
@@ -56,15 +58,15 @@ def hlp(*args):
 		print("    > create new files or perform bulk operations on a large group of files.", end='\n\n')
 
 		print("    > Everything in SIM-TERMINAL is based around the concept of functions.")
-		print("    > An example would be \"dvs()\", which, when typed, prompts you with \"dvs > input?> \"")
+		print("    > An example would be \"dvs()\", which, when typed, prompts you with \"dvs > input? > \"")
 		print("    > Entering a number and pressing Enter will in this case return the divisors of the")
 		print("    > number you entered.", end="\n\n")
 
-		print("    > Most function can also be called with the value between the brackets.")
+		print("    > Most functions can also be called with the value between the brackets.")
 		print("    > For example, dvs(420) will return the divisors of 420 while skipping the prompt.", end='\n\n')
 
 		print("    > If you want detailed info on a specific function, type hlp(\"name_of_function\").")
-		print("    > For a list of all available commands and a short summary of what they do, type lst().", end='\n\n')
+		print("    > For a list of all available functions and a short summary of what they do, type lst().", end='\n\n')
 	elif len(args) == 1:
 		if args[0] in functions:
 			print(f"    > {args[0]} : {functions.get(args[0])}")
@@ -190,6 +192,19 @@ def lcm(*args):
 
 	result = (abs(inputA) / gcd(inputA, inputB)) * abs(inputB)
 	return result
+
+# FILE OPERATIONS
+def pwd():
+	print()
+	print(f"    > {cwd}")
+	print()
+	raise DoNotPrint()
+def chd(path):
+	cwd = path
+	raise DoNotPrint()
+def mkd(name):
+	targetPath = cwd + "/" + name
+	os.mkdir(path=targetPath)
 
 print("SIM-TERMINAL, version alpha-0.0.3")
 print("Developed by Simeon Duwel, a. k. a. WalrusGumboot", end='\n\n')
