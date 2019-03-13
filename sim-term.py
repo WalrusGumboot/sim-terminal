@@ -6,6 +6,7 @@
 # Last edited on: 04/03/2019 (that's DD/MM/YYYY, folks!)
 
 import os
+from pathlib import Path
 
 functions = {
 	"asc()" : "ascii representation of a char",
@@ -17,9 +18,10 @@ functions = {
 	"hmd()" : "amount of times an int divides in another",
 	"lcm()" : "return the lcm of an int",
 	"lst()" : "list all functions",
+	"mkd()" : "makes a new directory",
+	"mkf()" : "makes a new empty file. requires suffix."
 	"pwd()" : "print the working directory"
 }
-cwd = os.getcwd()
 
 # EXCEPTIONS
 class ArgumentError(Exception):
@@ -196,15 +198,24 @@ def lcm(*args):
 # FILE OPERATIONS
 def pwd():
 	print()
-	print(f"    > {cwd}")
+	print(f"    > {os.getcwd()}")
 	print()
 	raise DoNotPrint()
 def chd(path):
-	cwd = path
+	os.chdir(path)
 	raise DoNotPrint()
 def mkd(name):
-	targetPath = cwd + "/" + name
+	if os.name == "nt":
+		targetPath = cwd + "\\" + name
+	else:
+		targetPath = cwd + "/" + name
 	os.mkdir(path=targetPath)
+
+def mkf(name):
+	if os.name == "nt":
+		os.system(f"type nul > {name}")
+	else:
+		os.system(f"touch {name}")
 
 print("SIM-TERMINAL, version alpha-0.0.3")
 print("Developed by Simeon Duwel, a. k. a. WalrusGumboot", end='\n\n')

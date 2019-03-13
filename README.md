@@ -9,11 +9,6 @@ When you call a function that supports optional parameters, for example `dvs()`,
 `dvs > input? > `.
 However, ```dvs(420)``` will immediately return the integer divisors of 420.
 
-## AESTHETICS
-
-All SIM-TERMINAL functions consist of three letters.
-They're inspired by Assembly.
-
 ## LIST OF FUNCTIONS
 
 Currently, there are four categories and nine functions.
@@ -33,3 +28,8 @@ Currently, there are four categories and nine functions.
  - pwd()
  - chd() (*doesn't do anything*)
  - mkd(name)
+
+ ## AESTHETICS
+
+ All SIM-TERMINAL functions consist of three letters.
+ They're inspired by Assembly.
