@@ -19,7 +19,7 @@ functions = {
 	"lcm()" : "return the lcm of an int",
 	"lst()" : "list all functions",
 	"mkd()" : "makes a new directory",
-	"mkf()" : "makes a new empty file. requires suffix."
+	"mkf()" : "makes a new empty file. requires suffix.",
 	"pwd()" : "print the working directory"
 }
 
@@ -206,9 +206,9 @@ def chd(path):
 	raise DoNotPrint()
 def mkd(name):
 	if os.name == "nt":
-		targetPath = cwd + "\\" + name
+		targetPath = os.getcwd() + "\\" + name
 	else:
-		targetPath = cwd + "/" + name
+		targetPath = os.getcwd() + "/" + name
 	os.mkdir(path=targetPath)
 
 def mkf(name):
