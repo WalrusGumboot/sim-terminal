@@ -26,8 +26,9 @@ Currently, there are four categories and nine functions.
  - lcm()
 #### File Functions
  - pwd()
- - chd() (*doesn't do anything*)
+ - chd()
  - mkd(name)
+ - mkf()
 
  ## AESTHETICS
 
