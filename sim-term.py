@@ -197,9 +197,7 @@ def lcm(*args):
 
 # FILE OPERATIONS
 def pwd():
-	print()
 	print(f"    > {os.getcwd()}")
-	print()
 	raise DoNotPrint()
 def chd(path):
 	os.chdir(path)
@@ -217,12 +215,13 @@ def mkf(name):
 	else:
 		os.system(f"touch {name}")
 
-print("SIM-TERMINAL, version alpha-0.0.3")
+print("SIM-TERMINAL, version 0.2.0")
 print("Developed by Simeon Duwel, a. k. a. WalrusGumboot", end='\n\n')
 
 print("Please contact me if you find any bugs:")
 print("e-mail: walrusgumboot.dev@gmail.com")
-print("phone #: +32 468 47 05 87", end='\n\n')
+print("phone #: +32 468 47 05 87")
+print("GitHub Issues: https://github.com/WalrusGumboot/sim-terminal/issues/new", end='\n\n')
 
 print("If this is your first time using SIM-TERMINAL, type hlp() for help", end='\n\n')
 
