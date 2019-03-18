@@ -11,19 +11,22 @@ However, ```dvs(420)``` will immediately return the integer divisors of 420.
 
 ## LIST OF FUNCTIONS
 
-Currently, there are four categories and nine functions.
+Currently, there are four categories and thirteen functions.
 
 #### Text Functions
  - asc()
  - hlp()
  - lst()
+
 #### Utility Functions
  - clr()
+
 #### Maths Functions
  - hmd()
  - dvs()
  - gcd()
  - lcm()
+
 #### File Functions
  - pwd()
  - chd()
