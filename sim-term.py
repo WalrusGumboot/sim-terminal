@@ -8,6 +8,21 @@
 import os
 from pathlib import Path
 
+functions = {
+	"asc()" : "ascii representation of a char",
+	"chd()" : "changes the current working directory",
+	"clr()" : "clear the console",
+	"dvs()" : "return divisors of an int",
+	"gcd()" : "return the gcd of an int",
+	"hlp()" : "print a basic welcome guide",
+	"hmd()" : "amount of times an int divides in another",
+	"lcm()" : "return the lcm of an int",
+	"lst()" : "list all functions",
+	"mkd()" : "makes a new directory",
+	"mkf()" : "makes a new empty file. requires suffix.",
+	"pwd()" : "print the working directory"
+}
+
 # EXCEPTIONS
 class ArgumentError(Exception):
 	"""
@@ -45,7 +60,7 @@ def hlp(*args):
 		print("    > create new files or perform bulk operations on a large group of files.", end='\n\n')
 
 		print("    > Everything in SIM-TERMINAL is based around the concept of functions.")
-		print("    > An example would be \"dvs\", which, when typed, prompts you with \"dvs > input? > \"")
+		print("    > An example would be \"dvs()\", which, when typed, prompts you with \"dvs > input? > \"")
 		print("    > Entering a number and pressing Enter will in this case return the divisors of the")
 		print("    > number you entered.", end="\n\n")
 
@@ -53,26 +68,26 @@ def hlp(*args):
 		print("    > For example, dvs(420) will return the divisors of 420 while skipping the prompt.", end='\n\n')
 
 		print("    > If you want detailed info on a specific function, type hlp(\"name_of_function\").")
-		print("    > For a list of all available functions and a short summary of what they do, type lst.", end='\n\n')
+		print("    > For a list of all available functions and a short summary of what they do, type lst().", end='\n\n')
 	elif len(args) == 1:
 		if args[0] in functions:
 			print(f"    > {args[0]} : {functions.get(args[0])}")
 		else:
 			print("    > That function was not found. Remember to end function names with brackets.")
 	elif len(args) > 1:
-		raise ArgumentError(function="lst", numOfArgs=len(args))
+		raise ArgumentError(function="lst()", numOfArgs=len(args))
 	else:
 		raise UnknownError()
 	raise DoNotPrint()
 def asc(*args):
-	"""asc
+	"""asc()
 	ascii representation of a given character"""
 	if len(args) == 0:
 		inputChar = input("asc > char? > ")
 	elif len(args) == 1:
 		inputChar = args[0]
 	elif len(args) > 1:
-		raise ArgumentError(function="asc", numOfArgs=len(args))
+		raise ArgumentError(function="asc()", numOfArgs=len(args))
 	else:
 		raise UnknownError()
 	return bin(ord(inputChar))
@@ -80,8 +95,8 @@ def lst():
 	print()
 	print("    > function | description")
 	print("    > ---------+------------")
-	for k, v in helpFn.items():
-		print(f"    > {k}      | {v}")
+	for k, v in functions.items():
+		print(f"    > {k}    | {v}")
 	print()
 	raise DoNotPrint()
 
@@ -106,7 +121,7 @@ def hmd(*args):
 		inputCheck = args[0]
 		inputUpTo = args[1]
 	elif len(args) > 2 or len(args) < 2:
-		raise ArgumentError(function="hmd", numOfArgs=len(args))
+		raise ArgumentError(function="hmd()", numOfArgs=len(args))
 	else:
 		raise UnknownError()
 	result = 0
@@ -128,7 +143,7 @@ def dvs(*args):
 	elif len(args) == 1:
 		inputVal = args[0]
 	elif len(args) > 1:
-		raise ArgumentError(function="dvs", numOfArgs=len(args))
+		raise ArgumentError(function="dvs()", numOfArgs=len(args))
 	else:
 		raise UnknownError()
 
@@ -149,7 +164,7 @@ def gcd(*args):
 		inputA = args[0]
 		inputB = args[1]
 	elif len(args) > 2 or len(args) < 2:
-		raise ArgumentError(function="gcd", numOfArgs=len(args))
+		raise ArgumentError(function="gcd()", numOfArgs=len(args))
 	else:
 		raise UnknownError()
 
@@ -173,7 +188,7 @@ def lcm(*args):
 		inputA = args[0]
 		inputB = args[1]
 	elif len(args) > 2 or len(args) < 2:
-		raise ArgumentError(function="lcm", numOfArgs=len(args))
+		raise ArgumentError(function="lcm()", numOfArgs=len(args))
 	else:
 		raise UnknownError()
 
@@ -208,45 +223,11 @@ print("e-mail: walrusgumboot.dev@gmail.com")
 print("phone #: +32 468 47 05 87")
 print("GitHub Issues: https://github.com/WalrusGumboot/sim-terminal/issues/new", end='\n\n')
 
-print("If this is your first time using SIM-TERMINAL, type hlp for help", end='\n\n')
-
-helpFn = {
-	"asc" : "ascii representation of a char",
-	"chd" : "changes the current working directory",
-	"clr" : "clear the console",
-	"dvs" : "return divisors of an int",
-	"gcd" : "return the gcd of an int",
-	"hlp" : "print a basic welcome guide",
-	"hmd" : "amount of times an int divides in another",
-	"lcm" : "return the lcm of an int",
-	"lst" : "list all functions",
-	"mkd" : "makes a new directory",
-	"mkf" : "makes a new empty file. requires suffix.",
-	"pwd" : "print the working directory"
-}
-
-functions = {
-	"asc" : asc,
-	"chd" : chd,
-	"clr" : clr,
-	"dvs" : dvs,
-	"gcd" : gcd,
-	"hlp" : hlp,
-	"hmd" : hmd,
-	"lcm" : lcm,
-	"lst" : lst,
-	"mkd" : mkd,
-	"mkf" : mkf,
-	"pwd" : pwd
-}
+print("If this is your first time using SIM-TERMINAL, type hlp() for help", end='\n\n')
 
 while True:
 	try:
-		command, *arguments = input("sim > ").strip().split(' ')  # Take the user's input and split on spaces.
-		if command not in functions:
-			print("Couldn't find command", command)
-		else:
-			functions[command](*arguments)
+		print("    > " + str(eval(input("sim > "))))
 	except SyntaxError:
 		print("sim > err > syntax error")
 		pass
